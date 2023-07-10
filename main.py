@@ -7,8 +7,8 @@ LOCAL = ["Local urbano", "fortificação", "Area rural", "Local deermos", "Front
 OBJETO = ["armas_e_armaduras", "riquezas","mercadorias","quinquilharias","mercado_clandestinos", "algum item magico"]
 EVENTO = ["Um acidente", "Anomalia sobrenatural", "Celebracao", "Dadiva", "Fenômeno Natural","Guerra", "Negociacao", "Praga", "Presenca_divina", "Traicao"]
 
-#enredo_escolhido = random.choice(ENREDO)
-enredo_escolhido = "perseguicao"
+enredo_escolhido = random.choice(ENREDO)
+#enredo_escolhido = "perseguicao"
 if enredo_escolhido == "Trabalho de Aventureiro":
     NPC_ESCOLHIDO = random.sample(NPC, k=2)
     LOCAL_ESCOLHIDO = random.sample(LOCAL, k=2)
