@@ -52,7 +52,8 @@ elif enredo_escolhido == "resgate":
 #perseguição
 elif enredo_escolhido == "perseguicao":
     PERSEGUIDOR = random.choice(["A AMEAÇA", "OS AVENTUREIROS"])
-    print(f"O seu perseguidor será: {PERSEGUIDOR}\n {PERSEGUIDOR} estaram indo atrás de ")
+    PERSEGUIDO = random.choice(["NPC", "AMEAÇA"])
+    print(f"O seu perseguidor será: {PERSEGUIDOR}\n Estaram indo atrás de um ")
 
 #conflito
 elif enredo_escolhido == "conflito":
