@@ -9,13 +9,16 @@ EVENTO = ["Um acidente", "Anomalia sobrenatural", "Celebracao", "Dadiva", "Fenô
 
 enredo_escolhido = random.choice(ENREDO)
 #enredo_escolhido = "perseguicao"
+
+#trabalho de avetureiro - esta pronto
 if enredo_escolhido == "Trabalho de Aventureiro":
     NPC_ESCOLHIDO = random.sample(NPC, k=2)
     LOCAL_ESCOLHIDO = random.sample(LOCAL, k=2)
     OBJETO_ESCOLHIDO = random.choice(OBJETO)
     EVENTO_ESCOLHIDO = random.choice(EVENTO)
     print (f"O enredo escolhido foi: {enredo_escolhido}\n Você deve usar os NPCs: {NPC_ESCOLHIDO[0]} e {NPC_ESCOLHIDO[1]}\n Ter como ameaça os capangas do vilão!, eles podem ser lacaios puxa-saco, escudeiros, um aprendiz fiel ou até mesmo uma Ama muito Severa.\n Passe a historia nestes 2 locais: {LOCAL_ESCOLHIDO[0]} e {LOCAL_ESCOLHIDO[1]} para encontrarem {OBJETO_ESCOLHIDO}.\n Dica: O objeto pode ser encontrado em qualquer um dos lugares, eles podem usar para ajudar na luta contra o vilão!. Boa aventura ;) ")
-#Jornada
+
+#Jornada - esta pronto
 elif enredo_escolhido == "jornada":
     LOCAL_ESCOLHIDO = random.sample(LOCAL, k=3)
     OBJETO_ESCOLHIDO = random.choices(OBJETO)
@@ -34,7 +37,8 @@ elif enredo_escolhido == "jornada":
         print(f"Você escolheu: {RESPOSTA}\nNa sua aventura vai ter as ameaças: {AMEACA_ESCOLHIDO[0]}, {AMEACA_ESCOLHIDO[1]} e {AMEACA_ESCOLHIDO[2]}. O mestre deve escolher a ordem que quiser e associar ao seu planejamento")
     else:
         print("Não entendi sua resposta, por favor role novamente")
-#resgate
+
+#resgate - esta pronto
 elif enredo_escolhido == "resgate":
     AMEACA_ESCOLHIDA = random.choices(AMEACA, k=4)
     LOCAL_ESCOLHIDO = random.sample(LOCAL, k=2)
@@ -49,11 +53,39 @@ elif enredo_escolhido == "resgate":
 
     else:
         print("Opção inválida. Por favor, role novamente.")
-#perseguição
+
+#perseguição : vou declarar esta parte mais a frente pois estou em duvidas de como formar a sequencia de acontecimentos.
 elif enredo_escolhido == "perseguicao":
-    PERSEGUIDOR = random.choice(["A AMEAÇA", "OS AVENTUREIROS"])
-    PERSEGUIDO = random.choice(["NPC", "AMEAÇA"])
-    print(f"O seu perseguidor será: {PERSEGUIDOR}\n Estaram indo atrás de um ")
+    AMEACA_ESCOLHIDA = random.choice(AMEACA)
+    LOCAL_ESCOLHIDO = random.sample(LOCAL, k=3)
+    RESULTADO = random.choice(["ser perseguidos por", "perseguir"])
+    print(f"Nesta aventura os aventureiros vão {RESULTADO} uma ameaça.")
+    print(f"A ameaça é: {AMEACA_ESCOLHIDA}")
+    print("O motivo desta perseguição pode ser um objeto ou um evento.")
+    RESULTADO = input("Nesta ocasião, qual você gostaria de escolher? (objeto/evento) ")
+    if RESULTADO == "evento":
+        EVENTO_ESCOLHIDO = random.choice(EVENTO)
+        print(f"Você escolheu Evento.\n O seu evento será: {EVENTO_ESCOLHIDO}")
+        print(f"Esta perseguição vai acontecer em 3 locais diferentes: {LOCAL_ESCOLHIDO[0]}, {LOCAL_ESCOLHIDO[1]} e {LOCAL_ESCOLHIDO[2]}.")
+        print("Para complementar a história, você deve utilizar 3 NPCs ou 3 Ameaças.")
+        RESPOSTA = input("Qual você gostaria de usar? (NPC/ameaça) ")
+        if RESPOSTA == "NPC":
+            NPC_ESCOLHIDO = random.sample(NPC, k=3)
+            print(f"Você escolheu NPCs\n Os NPCs que vão complementar sua historia são:{NPC_ESCOLHIDO[0]},{NPC_ESCOLHIDO[1]} e {NPC_ESCOLHIDO[2]}.")
+            print("Caso a perseguição se estenda até o ultimo local, a presa(aquele que esta sendo perseguido) estara a salvo!)")
+        elif RESPOSTA == "ameaça":
+            AMEACA_ESCOLHIDA = random.sample(AMEACA, k=3)
+            print(f"Você escolheu Ameaça\n As ameaças que vão complementar sua historia são:{AMEACA_ESCOLHIDA[0]},{AMEACA_ESCOLHIDA[1]} e {AMEACA_ESCOLHIDA[2]}.")
+            print("Caso a perseguição se estenda até o ultimo local, a presa(aquele que esta sendo perseguido) estara a salvo!)")
+        else:
+            print("Resposta não identificada. Role novamente!")
+    elif RESULTADO == "objeto":
+            OBJETO_ESCOLHIDO = random.sample(OBJETO, k=3)
+            print(f"Você escolheu Objeto\n O objeto que vão complementar sua historia são:{OBJETO_ESCOLHIDO[0]},{OBJETO_ESCOLHIDO[1]} e {OBJETO_ESCOLHIDO[2]}.")
+        
+    else:
+        print("Resposta inválida. Role novamente.")
+
 
 #conflito
 elif enredo_escolhido == "conflito":
@@ -63,6 +95,7 @@ elif enredo_escolhido == "conflito":
     OBJETO_ESCOLHIDO = random.choices(OBJETO)
     EVENTO_ESCOLHIDO = random.choices(EVENTO)
     print (f"O enredo escolhido foi: {enredo_escolhido}\n Você deve usar os NPCs: {NPC_ESCOLHIDO[0]} e {NPC_ESCOLHIDO[1]}\n Ter como ameaça {AMEACA_ESCOLHIDA[0]} \n Dica:Passe a historia em {LOCAL_ESCOLHIDO[0]} para encontrarem o {OBJETO_ESCOLHIDO[0]} ou você pode relacionar isto a um evento como: {EVENTO_ESCOLHIDO[0]}. Boa aventura ;)")
+
 #diplomacia
 elif enredo_escolhido == "diplomacia":
     NPC_ESCOLHIDO = random.choices(NPC, k=2)
@@ -71,6 +104,7 @@ elif enredo_escolhido == "diplomacia":
     OBJETO_ESCOLHIDO = random.choices(OBJETO)
     EVENTO_ESCOLHIDO = random.choices(EVENTO)
     print (f"O enredo escolhido foi: {enredo_escolhido}\n Você deve usar os NPCs: {NPC_ESCOLHIDO[0]} e {NPC_ESCOLHIDO[1]}\n Ter como ameaça {AMEACA_ESCOLHIDA[0]} \n Dica:Passe a historia em {LOCAL_ESCOLHIDO[0]} para encontrarem o {OBJETO_ESCOLHIDO[0]} ou você pode relacionar isto a um evento como: {EVENTO_ESCOLHIDO[0]}. Boa aventura ;)")
+
 #misterio
 elif enredo_escolhido == "misterio":
     NPC_ESCOLHIDO = random.choices(NPC, k=2)
@@ -79,6 +113,7 @@ elif enredo_escolhido == "misterio":
     OBJETO_ESCOLHIDO = random.choices(OBJETO)
     EVENTO_ESCOLHIDO = random.choices(EVENTO)
     print (f"O enredo escolhido foi: {enredo_escolhido}\n Você deve usar os NPCs: {NPC_ESCOLHIDO[0]} e {NPC_ESCOLHIDO[1]}\n Ter como ameaça {AMEACA_ESCOLHIDA[0]} \n Dica:Passe a historia em {LOCAL_ESCOLHIDO[0]} para encontrarem o {OBJETO_ESCOLHIDO[0]} ou você pode relacionar isto a um evento como: {EVENTO_ESCOLHIDO[0]}. Boa aventura ;)")
+
 #mensagem de erro
 else:
     print ("Role novamente o dado")
