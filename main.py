@@ -8,7 +8,7 @@ OBJETO = ["armas_e_armaduras", "riquezas","mercadorias","quinquilharias","mercad
 EVENTO = ["Um acidente", "Anomalia sobrenatural", "Celebracao", "Dadiva", "Fenômeno Natural","Guerra", "Negociacao", "Praga", "Presenca_divina", "Traicao"]
 
 enredo_escolhido = random.choice(ENREDO)
-#enredo_escolhido = "perseguicao"
+#enredo_escolhido = "conflito"
 
 #trabalho de avetureiro - esta pronto
 if enredo_escolhido == "Trabalho de Aventureiro":
@@ -89,12 +89,63 @@ elif enredo_escolhido == "perseguicao":
 
 #conflito
 elif enredo_escolhido == "conflito":
-    NPC_ESCOLHIDO = random.choices(NPC, k=2)
-    AMEACA_ESCOLHIDA = random.choices(AMEACA)
-    LOCAL_ESCOLHIDO = random.choices(LOCAL)
-    OBJETO_ESCOLHIDO = random.choices(OBJETO)
-    EVENTO_ESCOLHIDO = random.choices(EVENTO)
-    print (f"O enredo escolhido foi: {enredo_escolhido}\n Você deve usar os NPCs: {NPC_ESCOLHIDO[0]} e {NPC_ESCOLHIDO[1]}\n Ter como ameaça {AMEACA_ESCOLHIDA[0]} \n Dica:Passe a historia em {LOCAL_ESCOLHIDO[0]} para encontrarem o {OBJETO_ESCOLHIDO[0]} ou você pode relacionar isto a um evento como: {EVENTO_ESCOLHIDO[0]}. Boa aventura ;)")
+    DADO = random.randint(1, 4)
+    NPC_ESCOLHIDO = random.choices(NPC, k=4)
+    AMEACA_ESCOLHIDA = random.choices(AMEACA, k=4)
+  
+    if DADO == 1 :
+        print (f"O enredo escolhido foi: {enredo_escolhido}\n Nesta aventura vai ter uma facção liderada por {NPC_ESCOLHIDO[0]},\n com a ameaça:{AMEACA_ESCOLHIDA[0]}\n Este quebra pau esta acontecendo pois todos querem a posse de um lugar ou de um objeto;)")
+        RESPOSTA = input ("Qual você gostaria de usar?(objeto / local)") 
+            
+        if RESPOSTA == "local":
+                LOCAL_ESCOLHIDO = random.choices(LOCAL)
+                print (f"Você escolheu Local, Boa escolha \n O local escolhido foi {LOCAL_ESCOLHIDO[0]}. Boa aventura!")
+        elif RESPOSTA == "objeto":
+                OBJETO_ESCOLHIDO = random.choices(OBJETO)
+                print (f"Você escolheu objeto, Boa escolha \n O objeto escolhido foi {OBJETO_ESCOLHIDO[0]}. Boa aventura!")
+        else :
+            print ("Comando invalido, role novamente!")
+   
+    elif DADO == 2 :
+        print (f"O enredo escolhido foi: {enredo_escolhido}\n Nesta aventura vão ter 2 facções lideradas por {NPC_ESCOLHIDO[0]} e {NPC_ESCOLHIDO[1]},\n com as ameaças:{AMEACA_ESCOLHIDA[0]} e {AMEACA_ESCOLHIDA[1]}\n Este quebra pau esta acontecendo pois todos querem a posse de um lugar ou de um objeto;)")
+        RESPOSTA = input ("Qual você gostaria de usar?(objeto / local)") 
+            
+        if RESPOSTA == "local":
+                LOCAL_ESCOLHIDO = random.choices(LOCAL)
+                print (f"Você escolheu Local, Boa escolha \n O local escolhido foi {LOCAL_ESCOLHIDO[0]}. Boa aventura!")
+        elif RESPOSTA == "objeto":
+                OBJETO_ESCOLHIDO = random.choices(OBJETO)
+                print (f"Você escolheu objeto, Boa escolha \n O objeto escolhido foi {OBJETO_ESCOLHIDO}. Boa aventura!")
+        else :
+            print ("Comando invalido, role novamente!")
+
+    elif DADO == 3 :
+            print (f"O enredo escolhido foi: {enredo_escolhido}\n Nesta aventura vão ter 3 facções lideradas por {NPC_ESCOLHIDO[0]}, {NPC_ESCOLHIDO[1]} e {NPC_ESCOLHIDO[0]}\n com as ameaças:{AMEACA_ESCOLHIDA[0]}, {AMEACA_ESCOLHIDA[1]} e {AMEACA_ESCOLHIDA[2]} \n Este quebra pau esta acontecendo pois todos querem a posse de um lugar ou de um objeto;)")
+            RESPOSTA = input ("Qual você gostaria de usar?(objeto / local)")
+            if RESPOSTA == "local":
+                LOCAL_ESCOLHIDO = random.choices(LOCAL)
+                print (f"Você escolheu Local, Boa escolha \n O local escolhido foi {LOCAL_ESCOLHIDO[0]}. Boa aventura!")
+            elif RESPOSTA == "objeto":
+                OBJETO_ESCOLHIDO = random.choices(OBJETO)
+                print (f"Você escolheu objeto, Boa escolha \n O objeto escolhido foi {OBJETO_ESCOLHIDO[0]}. Boa aventura!")
+            else :
+               print ("Comando invalido, role novamente!")
+
+    elif DADO == 4 :
+        print (f"O enredo escolhido foi: {enredo_escolhido}\n Nesta aventura vão ter 3 facções lideradas por {NPC_ESCOLHIDO[0]}, {NPC_ESCOLHIDO[1]}, {NPC_ESCOLHIDO[2]} e {NPC_ESCOLHIDO[3]}\n com as ameaças:{AMEACA_ESCOLHIDA[0]}, {AMEACA_ESCOLHIDA[1]}, {AMEACA_ESCOLHIDA[2]} e {AMEACA_ESCOLHIDA[3]} \n Este quebra pau esta acontecendo pois todos querem a posse de um lugar ou de um objeto;)")
+        RESPOSTA = input ("Qual você gostaria de usar?(objeto / local)") 
+            
+        if RESPOSTA == "local":
+                LOCAL_ESCOLHIDO = random.choices(LOCAL)
+                print (f"Você escolheu Local, Boa escolha \n O local escolhido foi {LOCAL_ESCOLHIDO[0]}. Boa aventura!")
+        elif RESPOSTA == "objeto":
+                OBJETO_ESCOLHIDO = random.choices(OBJETO)
+                print (f"Você escolheu objeto, Boa escolha \n O objeto escolhido foi {OBJETO_ESCOLHIDO}. Boa aventura!")
+        else :
+            print ("Comando invalido, role novamente!")
+    else:
+        print("role novamente!")
+            
 
 #diplomacia
 elif enredo_escolhido == "diplomacia":
